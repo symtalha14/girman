@@ -1,4 +1,3 @@
-import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/header_logo.png";
 import { MenuIcon } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -14,7 +13,9 @@ function Header() {
         links[4].classList.add("active");
 
         links.forEach(link => {
-            link.addEventListener("click", e => {
+            link.addEventListener("click", (e) => {
+                if(e.target){}
+
                 Array.prototype.slice.call(links).map(l => l.classList.remove("active"));
                 link.classList.add("active");
             })

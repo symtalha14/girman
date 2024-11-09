@@ -1,8 +1,6 @@
 import { SearchIcon } from "lucide-react";
 import master_logo from "../assets/master_logo.png";
-import { useEffect, useRef, useState } from "react";
-import { Navigate } from "react-router-dom";
-import SearchResults from "./SearchResults";
+
 
 
 export default function Search() {

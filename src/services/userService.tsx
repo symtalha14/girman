@@ -4,5 +4,5 @@ const getUsersByQuery = async (query: string) => {
     return fetch(SEARCH_API_URL + "?query=" + query);
 }
 
-
+// fjgf
 export { getUsersByQuery };

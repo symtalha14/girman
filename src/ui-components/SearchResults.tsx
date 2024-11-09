@@ -43,9 +43,11 @@ function SearchResults() {
                         setNoResults(true);
                     }
                 }).catch(err => {
+                    console.log(err);
                     alert("An error occurred. Please try again later.")
                 })
             }).catch(err => {
+                console.log(err);
                 alert("An Error Occurred. Please try again later.");
             })
         }

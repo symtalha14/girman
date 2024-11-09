@@ -3,7 +3,6 @@ import './App.css'
 import './main.js'
 import Header from './ui-components/Header'
 import Search from './ui-components/Search.js'
-import bg_graphic from "./assets/bg_graphic.png";
 import SearchResults from './ui-components/SearchResults.js'
 
 function App() {
@@ -12,10 +11,9 @@ function App() {
     <>
       <Header />
       <HashRouter>
-
         <Routes>
-          <Route path='/' element={<Navigate to={"search"} />} />
-          <Route path='/search' element={<Search />} />
+          {/* <Route path='/' element={<Navigate to={"search"} />} /> */}
+          <Route path='/' element={<Search />} />
           <Route path='/search/results/:query' element={<SearchResults />} />
         </Routes>
 
