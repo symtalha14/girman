@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://symtalha14.github.io/girman",
+  "homepage": "https://girman-frontend-40b724b4bfc9.herokuapp.com",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
