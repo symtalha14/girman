@@ -12,8 +12,8 @@ function App() {
       <Header />
       <HashRouter>
         <Routes>
-          {/* <Route path='/' element={<Navigate to={"search"} />} /> */}
-          <Route path='/' element={<Search />} />
+          <Route path='/' element={<Navigate to={"search"} />} />
+          <Route path='/search' element={<Search />} />
           <Route path='/search/results/:query' element={<SearchResults />} />
         </Routes>
 
