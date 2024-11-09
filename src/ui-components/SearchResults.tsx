@@ -32,21 +32,24 @@ function SearchResults() {
     const { query } = useParams();
     const [results, setResults] = useState([]);
     const [no_results, setNoResults] = useState(false);
-
+    const [loading, setLoading] = useState(false);
     useEffect(() => {
         if (query && query.length > 0) {
-          
+            setLoading(true);
             getUsersByQuery(query).then(res => {
+                setLoading(false);
                 res.json().then(data => {
                     setResults(data.data);
                     if (data.data.length == 0) {
                         setNoResults(true);
                     }
                 }).catch(err => {
+                    setLoading(false);
                     console.log(err);
                     alert("An error occurred. Please try again later.")
                 })
             }).catch(err => {
+                setLoading(false);
                 console.log(err);
                 alert("An Error Occurred. Please try again later.");
             })
@@ -58,6 +61,10 @@ function SearchResults() {
         <>
             {no_results && <div style={{ display: "grid", placeItems: "center", width: "100%", height: "80vh" }}>
                 <img width={300} src={no_results_placeholder} />
+            </div>}
+
+            {loading && <div style={{ display: "grid", placeItems: "center", width: "100%", height: "80vh" }}>
+                <h1>Loading...</h1>
             </div>}
 
             {results.length > 0 && <div className="results_container">
@@ -92,7 +99,7 @@ function SearchResults() {
                                         </DialogTrigger>
                                         <DialogContent style={{ background: "white" }}>
                                             <DialogHeader>
-                                                <DialogTitle>Fetch Details</DialogTitle>
+                                                <DialogTitle style={{fontWeight:"bolder", fontSize:"20px"}}>Fetch Details</DialogTitle>
                                                 <DialogDescription>
                                                     Here are the details of the following employee.
                                                 </DialogDescription>
@@ -101,7 +108,7 @@ function SearchResults() {
                                                 Name: {result["first_name"] + " " + result["last_name"]} <br />
                                                 Location: {result["city"]} <br />
                                                 Contact number: {result["contact_number"]} <br />
-                                                Profile Image: <br />
+                                                Profile Image: <br /><br/>
                                                 <img src={user_placeholder} width={240} height={240} />
 
                                             </div>
